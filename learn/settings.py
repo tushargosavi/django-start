@@ -54,7 +54,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'learn.urls'
 
 
-TEMPLATE_DIR = "/home/tushar/devel/sagar/learn/templates"
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
 TEMPLATES = [
     {
