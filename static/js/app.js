@@ -1,7 +1,24 @@
 function checkUser() {
     username = $("#id_username").val();
     console.log("Username ", username);
+    $.ajax({
+        "url": "/checkuser",
+        "data": {
+            "username": username
+        }
+    }).done(function(data){
+        $(".usererr").remove();
+        if(data === 'taken'){
+            html = "<div class=\"usererr err\">username is already taken</div>";
+            $("body > form > p:nth-child(2)").append(html);
+
+
+        }
+        console.log(data);
+    })
 }
+
+
 
 function validateEmail() {
     email = $("#id_email").val();
