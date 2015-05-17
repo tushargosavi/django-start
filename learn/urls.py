@@ -17,11 +17,18 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    # Login pages
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'registration.views.logout_page'),
 
+    # Registration pages
+    url(r'^checkuser/$', 'registration.registrationview.checkuser'),
+    url(r'^reg/$', 'registration.registrationview.registration'),
+    url(r'^regsuccess/$', 'registration.registrationview.regsuccess'),
+
+    # main website
     url(r'^$', 'registration.views.home'),
-    url(r'^reg/$', 'registration.views.registration'),
-    url(r'^regsuccess/$', 'registration.views.regsuccess'),
+
+    # admin pages.
     url(r'^admin/', include(admin.site.urls)),
 ]
